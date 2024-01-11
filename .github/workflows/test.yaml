@@ -24,7 +24,7 @@ jobs:
         pip install requests
 
     - name: Generate random files
-      run: python generate_files.py
+      run: python ${{ github.workspace }}/generate_files.py
 
     - name: Archive files into tar
       run: tar czf files.tar.gz file*
