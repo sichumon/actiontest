@@ -25,7 +25,11 @@ jobs:
         done
 
     - name: Archive files into tar
-      run: tar czf files.tar.gz file*
+      run: |
+        for x in $(ls -1 file*.txt)
+        do
+        tar cf $x.tar $x
+        done
 
     - name: Create a 1MB file and zip
       run: dd if=/dev/zero of=large_file bs=1024 count=1024 && zip large_file.zip large_file
