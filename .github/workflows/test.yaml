@@ -18,13 +18,11 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        pip install faker
-        pip install requests
-
     - name: Generate random files
-      run: python ${{ github.workspace }}/generate_files.py
+      run: |
+        for i in {1..3}; do
+          echo "This is file $i" > "file_$i.txt"
+        done
 
     - name: Archive files into tar
       run: tar czf files.tar.gz file*
