@@ -44,7 +44,7 @@ jobs:
       
     - name: Count tar files
       id: count_files
-      run: echo "::set-output name=count::$(ls -1q file*.tar.gz | wc -l)"
+      run: echo "::set-output name=count::$(ls -1q file*.tar | wc -l)"
 
     - name: Create Release if 3 or more tar files
       id: create_release
